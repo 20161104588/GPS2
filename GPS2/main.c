@@ -25,7 +25,7 @@ int main(int argc,const char *argv[])
     if(fp==NULL)
         printf("打开文件错误\n");
     else
-        fprintf(fr,"纬度 ，经度 ，海拔 ，时间 ，日期 \n");
+        fprintf(fr,"纬度,  经度,   海拔,   时间,   日期\n");
     
     
     while(fscanf(fp,"%s %s",gps1,gps2)!=EOF)
@@ -38,21 +38,21 @@ int main(int argc,const char *argv[])
         lat[a]=gps1[a+16];
     lat[8]='\0';
      printf("纬度：%s,\n",lat);
-     fprintf(fr,"纬度:%s, ",lat);
+     fprintf(fr,"%s, ",lat);
         
         
     for(b=0;b<9;b++)
         lng[b]=gps1[b+27];
     lng[9]='\0';
      printf("经度:%s,\n",lng);
-     fprintf(fr,"经度:%s, ",lng);
+     fprintf(fr,"%s, ",lng);
         
         
     for(i=0;i<4;i++)
         alt[i]=gps2[i+43];
     alt[5]='\0';
      printf("海拔:%sm,\n",alt);
-     fprintf(fr,"海拔:%sm, ",alt);
+     fprintf(fr,"%sm, ",alt);
         
         
     for(j=0;j<2;j++)
@@ -61,7 +61,7 @@ int main(int argc,const char *argv[])
     t1=(time[0]-'0')*10;
     t2=(time[1]-'0')*1+t1+8;
      printf("时间:%d时",t2);
-     fprintf(fr,"时间:%d时",t2);
+     fprintf(fr,"%d时",t2);
         
         
     for(j=0;j<2;j++)
@@ -82,7 +82,7 @@ int main(int argc,const char *argv[])
             day[d]=gps1[d+55];
         day[2]='\0';
         printf("日期:20%s年",day);
-    fprintf(fr,"日期:20%s年",day);
+    fprintf(fr,"20%s年",day);
         
         
     for(d=0;d<2;d++)
@@ -96,7 +96,7 @@ int main(int argc,const char *argv[])
         day[d]=gps1[d+51];
     day[2]='\0';
     printf("%s日,\n",day);
-    fprintf(fr,"%s日 ,\n",day);
+    fprintf(fr,"%s日,\n",day);
         
         
     }
