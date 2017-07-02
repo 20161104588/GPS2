@@ -12,7 +12,7 @@ int main(int argc,const char *argv[])
     FILE *fr;
     char gps1[70];
     char gps2[70];
-    char lat[10];//纬度
+    char lat[9];//纬度
     char lng[10];//经度
     char alt[10];//海拔
     char time[10];//时间
@@ -21,7 +21,8 @@ int main(int argc,const char *argv[])
     fp=fopen("//Users//a20161104588//Desktop//GPS2//GPS170510.log","r+");
     fr=fopen("//Users//a20161104588//Desktop//GPS2//gpsout.csv","w" );
     
-    
+    //$GPRMC,013238,A,4047.533,N,11141.856,E,012.2,253.6,100517,,*1A
+    //$GPGGA,013238,4047.533,N,11141.856,E,1,05,,1108,M,,M,,*57
     if(fp==NULL)
         printf("打开文件错误\n");
     else
@@ -37,20 +38,22 @@ int main(int argc,const char *argv[])
     for(a=0;a<8;a++)
         lat[a]=gps1[a+16];
     lat[8]='\0';
-     printf("纬度：%s,\n",lat);
-     fprintf(fr,"%s, ",lat);
+        printf("纬度:%c%c.%c%c%c%c%c\n",lat[0],lat[1],lat[2],lat[3],lat[5],lat[6],lat[7]);
+        fprintf(fr,"%c%c.%c%c%c%c%c,",lat[0],lat[1],lat[2],lat[3],lat[5],lat[6],lat[7]);
         
         
     for(b=0;b<9;b++)
         lng[b]=gps1[b+27];
     lng[9]='\0';
-     printf("经度:%s,\n",lng);
-     fprintf(fr,"%s, ",lng);
+     
+        printf("%c%c%c.%c%c%c%c%c\n",lng[0],lng[1],lng[2],lng[3],lng[4],lng[6],lng[7],lng[8]);
+     fprintf(fr,"%c%c%c.%c%c%c%c%c,",lng[0],lng[1],lng[2],lng[3],lng[4],lng[6],lng[7],lng[8]);
+        
         
         
     for(i=0;i<4;i++)
         alt[i]=gps2[i+43];
-    alt[5]='\0';
+    alt[4]='\0';
      printf("海拔:%sm,\n",alt);
      fprintf(fr,"%sm, ",alt);
         
