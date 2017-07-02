@@ -38,16 +38,16 @@ int main(int argc,const char *argv[])
     for(a=0;a<8;a++)
         lat[a]=gps1[a+16];
     lat[8]='\0';
-        printf("纬度:%c%c.%c%c%c%c%c\n",lat[0],lat[1],lat[2],lat[3],lat[5],lat[6],lat[7]);
-        fprintf(fr,"%c%c.%c%c%c%c%c,",lat[0],lat[1],lat[2],lat[3],lat[5],lat[6],lat[7]);
+        printf("纬度:%c%c'%c%c%c%c%c\n",lat[0],lat[1],lat[2],lat[3],lat[5],lat[6],lat[7]);
+        fprintf(fr,"%c%c'%c%c%c%c%c,",lat[0],lat[1],lat[2],lat[3],lat[5],lat[6],lat[7]);
         
         
     for(b=0;b<9;b++)
         lng[b]=gps1[b+27];
     lng[9]='\0';
      
-        printf("%c%c%c.%c%c%c%c%c\n",lng[0],lng[1],lng[2],lng[3],lng[4],lng[6],lng[7],lng[8]);
-     fprintf(fr,"%c%c%c.%c%c%c%c%c,",lng[0],lng[1],lng[2],lng[3],lng[4],lng[6],lng[7],lng[8]);
+        printf("%c%c%c'%c%c%c%c%c\n",lng[0],lng[1],lng[2],lng[3],lng[4],lng[6],lng[7],lng[8]);
+     fprintf(fr,"%c%c%c'%c%c%c%c%c,",lng[0],lng[1],lng[2],lng[3],lng[4],lng[6],lng[7],lng[8]);
         
         
         
